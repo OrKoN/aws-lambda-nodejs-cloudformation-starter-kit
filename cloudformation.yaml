@@ -10,6 +10,10 @@ Parameters:
     Type: String
     Default: "latest"
 
+  S3BucketName:
+    Description: "S3BucketName"
+    Type: "String"
+
 Resources:
   FooFunctionRole:
     Type: "AWS::IAM::Role"
@@ -41,7 +45,7 @@ Resources:
     Type: "AWS::Lambda::Function"
     Properties:
       Code:
-        S3Bucket: "reposter-project-functions"
+        S3Bucket: !Ref S3BucketName
         S3Key: !Sub FooFunction-${FooFunctionVersion}.zip
       Description: Lambda function that schedules updates
       Environment:
