@@ -1,0 +1,55 @@
+Description: >
+  AWS Lambda Nodejs Starter project.
+  To add a new function define the function role and the function itself following
+  the template of FooFunction.
+
+Parameters:
+
+  FooFunctionMD5:
+    Description: "MD5 of the lambda function required to update existing stack"
+    Type: String
+    Default: "latest"
+
+Resources:
+  FooFunctionRole:
+    Type: "AWS::IAM::Role"
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          -
+            Effect: "Allow"
+            Principal:
+              Service:
+                - "lambda.amazonaws.com"
+            Action:
+              - "sts:AssumeRole"
+      Policies:
+        -
+          PolicyName: "FooFunctionPolicy"
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+            - Effect: Allow
+              Action:
+              - logs:CreateLogGroup
+              - logs:CreateLogStream
+              - logs:PutLogEvents
+              Resource: "*"
+
+  FooFunction:
+    Type: "AWS::Lambda::Function"
+    Properties:
+      Code:
+        S3Bucket: "reposter-project-functions"
+        S3Key: !Sub FooFunction-${FooFunctionMD5}.zip
+      Description: Lambda function that schedules updates
+      Environment:
+        Variables:
+          NODE_ENV: production
+      FunctionName: FooFunction
+      Handler: "index.handler"
+      MemorySize: 128
+      Role: !GetAtt FooFunctionRole.Arn
+      Runtime: "nodejs4.3"
+      Timeout: 100

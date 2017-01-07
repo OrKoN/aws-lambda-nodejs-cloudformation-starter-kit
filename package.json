@@ -1,0 +1,14 @@
+{
+  "name": "aws-lambda-nodejs-starter",
+  "version": "1.0.0",
+  "description": "AWS Lambda NodeJS Starter Project/Boilerplate",
+  "main": "index.js",
+  "scripts": {
+    "create-stack": "export $(cat config.env | xargs) && ./bin/create.sh",
+    "delete-stack": "export $(cat config.env | xargs) && ./bin/delete.sh",
+    "update-stack": "export $(cat config.env | xargs) && ./bin/update.sh"
+  },
+  "keywords": [],
+  "author": "Alex Rudenko <oleksii.rudenko@60devs.com>",
+  "license": "MIT"
+}
