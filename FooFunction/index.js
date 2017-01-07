@@ -1,5 +1,5 @@
 'use strict'
 
 exports.handler = function() {
-  console.log('foo 2');
+  console.log('foo');
 }
