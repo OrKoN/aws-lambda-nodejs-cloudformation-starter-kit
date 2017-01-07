@@ -5,8 +5,8 @@ Description: >
 
 Parameters:
 
-  FooFunctionMD5:
-    Description: "MD5 of the lambda function required to update existing stack"
+  FooFunctionVersion:
+    Description: "Version of the lambda function required to update existing stack"
     Type: String
     Default: "latest"
 
@@ -42,7 +42,7 @@ Resources:
     Properties:
       Code:
         S3Bucket: "reposter-project-functions"
-        S3Key: !Sub FooFunction-${FooFunctionMD5}.zip
+        S3Key: !Sub FooFunction-${FooFunctionVersion}.zip
       Description: Lambda function that schedules updates
       Environment:
         Variables:
