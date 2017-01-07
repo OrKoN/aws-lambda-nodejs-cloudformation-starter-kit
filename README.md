@@ -1,2 +1,1 @@
-# AWS Lambda NodeJS Starter
-
+# AWS Lambda CloudFormation NodeJS Starter
