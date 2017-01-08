@@ -48,4 +48,4 @@ To add a new function you need to create a new folder where the function will be
 
 ## More Info
 
-Please read this blog post of mine providing more details about this project: [Introducing a Simple AWS Lambda Starter Kit for NodeJS Using CloudFormation](https://60devs.com/introducing-aws-lambda-starter-kit-using-cloudformation-nodejs.html).
+Please read this blog post of mine providing more details about this project: [Introducing a Simple AWS Lambda Starter Kit for NodeJS Using CloudFormation](https://60devs.com/aws-lambda-starter-kit-using-cloudformation-nodejs.html).
